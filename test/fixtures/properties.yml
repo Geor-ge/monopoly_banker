@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  color: MyString
+  property_price: 1
+  house_price: 1
+  hotel_price: 1
+  mortgage_value: 1
+  rent: 1
+  rent_1: 1
+  rent_2: 1
+  rent_3: 1
+  rent_4: 1
+  rent_hotel: 
+
+two:
+  name: MyString
+  color: MyString
+  property_price: 1
+  house_price: 1
+  hotel_price: 1
+  mortgage_value: 1
+  rent: 1
+  rent_1: 1
+  rent_2: 1
+  rent_3: 1
+  rent_4: 1
+  rent_hotel: 
