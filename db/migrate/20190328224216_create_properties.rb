@@ -14,8 +14,8 @@ class CreateProperties < ActiveRecord::Migration[5.2]
       t.integer :rent_4
       t.integer :rent_hotel
       t.boolean :owned
-      t.boolean :utility
-      t.boolean :railroad
+      t.integer :number_of_houses
+      t.integer :number_of_hotels
       t.references :player
 
       t.timestamps

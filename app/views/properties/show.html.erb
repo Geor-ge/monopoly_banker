@@ -1,2 +1,30 @@
-<h1>Properties#show</h1>
-<p>Find me in app/views/properties/show.html.erb</p>
+<div class="property-card">
+  <h3 style="background-color: <%= @property.color %>"><%= @property.name %></h3>
+  <% if @property.owned? %>
+  <h4>Owner: <%= @property.player.name %></h4>
+  <p><%= @property.number_of_houses %></p>
+  <p><%= @property.number_of_hotels %></p>
+  <% else %>
+  <h4>Owner: N/A</h4>
+  <% end %>
+  <p>Property Price: <%= number_to_currency(@property.property_price, precision: 0) %></p>
+  <p>Mortgage Value: <%= number_to_currency(@property.mortgage_value, precision: 0) %></p>
+  <% if @property.color == 'Railroad' %>
+  <p>Rent: <%= number_to_currency(@property.rent_1, precision: 0) %></p>
+  <p>If 2 Railroads Are Owned: <%= number_to_currency(@property.rent_2, precision: 0) %></p>
+  <p>If 3 Railroads Are Owned: <%= number_to_currency(@property.rent_3, precision: 0) %></p>
+  <p>If 4 Railroads Are Owned: <%= number_to_currency(@property.rent_4, precision: 0) %></p>
+  <% elsif @property.color == 'Utility' %>
+  <p>Rent: 4X Dice Roll</p>
+  <p>If Both Utilities Are Owned: 10X Dice Roll</p>
+  <% else %>
+  <p>Rent: <%= number_to_currency(@property.rent, precision: 0) %></p>
+  <p>Rent w/ 1 House: <%= number_to_currency(@property.rent_1, precision: 0) %></p>
+  <p>Rent w/ 2 House: <%= number_to_currency(@property.rent_2, precision: 0) %></p>
+  <p>Rent w/ 3 House: <%= number_to_currency(@property.rent_3, precision: 0) %></p>
+  <p>Rent w/ 4 House: <%= number_to_currency(@property.rent_4, precision: 0) %></p>
+  <p>Rent w/ Hotel: <%= number_to_currency(@property.rent_hotel, precision: 0) %></p>
+  <p>Houses Cost: <%= number_to_currency(@property.house_price, precision: 0) %> Each</p>
+  <p>Hotels Cost: <%= number_to_currency(@property.hotel_price, precision: 0) %> Each</p>
+  <% end %>
+</div>

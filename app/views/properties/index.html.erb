@@ -1,4 +1,16 @@
-
-<% @properties.each do |p| %>
-<p><%= p.name %> <%= p.color%> <%= p.property_price %></p>
-<% end %>
+<table>
+  <tr>
+    <th>Property Name</th>
+    <th>Property Color/Type</th>
+    <th>Property Price</th>
+    <th></th>
+  </tr>
+  <tr>
+    <% @properties.each do |p| %>
+    <td><%= p.name %></td>
+    <td><%= p.color%></td>
+    <td><%= number_to_currency(p.property_price, precision: 0) %></td>
+    <td><%= link_to 'More Info', p %></td>
+  </tr>
+  <% end %>
+</table>

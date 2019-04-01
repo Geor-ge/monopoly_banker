@@ -34,8 +34,8 @@ ActiveRecord::Schema.define(version: 2019_03_28_224455) do
     t.integer "rent_4"
     t.integer "rent_hotel"
     t.boolean "owned"
-    t.boolean "utility"
-    t.boolean "railroad"
+    t.integer "number_of_houses"
+    t.integer "number_of_hotels"
     t.integer "player_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
