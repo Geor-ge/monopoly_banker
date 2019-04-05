@@ -48,8 +48,9 @@ body{
 
 .modal{
   display: none;
-  position: absolute;
+  position: fixed;
   top: 35px;
+  left: 33%;
   width: 450px;
   height: 575px;
   padding: 5px;
@@ -62,4 +63,28 @@ body{
 .modal-title{
   font-weight: bolder;
   font-size: 20px;
+}
+
+#btn-group{
+  margin: 10px;
+  position: absolute;
+  bottom: 0px;
+  left: 14%;
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-column-gap: 10px;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+}
+.modal-btn{
+  padding: 5px 10px;
+  background-color: green;
+  color: white;
+  border-radius: 3px;
+  transition: .35s ease;
+}
+.modal-btn:hover{
+  transform: scale(1.125);
+  cursor: pointer;
 }

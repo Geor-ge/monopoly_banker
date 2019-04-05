@@ -53,9 +53,12 @@
     <p>Houses Cost: <%= number_to_currency(p.house_price, precision: 0) %> Each</p>
     <p>Hotels Cost: <%= number_to_currency(p.hotel_price, precision: 0) %> Each</p>
     <% end %>
-    <div class='modal-btn'>
-     <p>Buy</p>  <p>Mortgage</p>  <p>Sell</p>  <p>Pay Rent</p>
-    </div>
+    <div id='btn-group'>
+     <p class='modal-btn'>Pay Rent</p>
+     <p class='modal-btn'>Buy</p>
+     <p class='modal-btn'>Sell</p>
+     <p class='modal-btn'>Mortgage</p>
+     </div>
   </div>
 </div>
 

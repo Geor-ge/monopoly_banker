@@ -17,8 +17,8 @@
 let properties = document.getElementsByClassName('card');
 
 for(i=0; i<properties.length; i++) {
-  properties[i].addEventListener('click', function(e){
+  properties[i].addEventListener('click', function(){
     this.lastElementChild.style.display = 'block';
-    console.log('click');
+    console.log("I've been clicked!!");
   });
 }
