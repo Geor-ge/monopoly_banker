@@ -49,9 +49,10 @@ Property.create(name: 'Park Place', color: 'Blue', property_price: 350, house_pr
 
 Property.create(name: 'Boardwalk', color: 'Blue', property_price: 400, house_price: 200, hotel_price: 200, mortgage_value: 200, rent: 50, rent_1: 200, rent_2: 600, rent_3: 1400, rent_4: 1700, rent_hotel: 2000, owned: false, number_of_houses: 0, number_of_hotels: 0)
 
+Property.create(name: 'Electric Company', color: 'Utility', property_price: 150, mortgage_value: 75, owned: false)
+Property.create(name: 'Water Works', color: 'Utility', property_price: 150, mortgage_value: 75, owned: false)
+
 Property.create(name: 'Reading Railroad', color: 'Railroad', property_price: 200, rent_1: 25, rent_2: 50, rent_3: 100, rent_4: 200, mortgage_value: 100, owned: false)
 Property.create(name: 'Pennsylvania Railroad',  color: 'Railroad', property_price: 200, rent_1: 25, rent_2: 50, rent_3: 100, rent_4: 200, mortgage_value: 100, owned: false)
 Property.create(name: 'B. & O. Railroad',  color: 'Railroad', property_price: 200, rent_1: 25, rent_2: 50, rent_3: 100, rent_4: 200, mortgage_value: 100, owned: false)
 Property.create(name: 'Short Line Railroad',  color: 'Railroad', property_price: 200, rent_1: 25, rent_2: 50, rent_3: 100, rent_4: 200, mortgage_value: 100, owned: false)
-Property.create(name: 'Electric Company', color: 'Utility', property_price: 150, mortgage_value: 75, owned: false)
-Property.create(name: 'Water Works', color: 'Utility', property_price: 150, mortgage_value: 75, owned: false)

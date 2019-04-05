@@ -14,3 +14,11 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+let properties = document.getElementsByClassName('card');
+
+for(i=0; i<properties.length; i++) {
+  properties[i].addEventListener('click', function(e){
+    this.lastElementChild.style.display = 'block';
+    console.log('click');
+  });
+}
