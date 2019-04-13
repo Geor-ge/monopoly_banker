@@ -14,11 +14,19 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
-let properties = document.getElementsByClassName('card');
-
-for(i=0; i<properties.length; i++) {
-  properties[i].addEventListener('click', function(){
-    this.lastElementChild.style.display = 'block';
-    console.log("I've been clicked!!");
-  });
-}
+// const properties = document.getElementsByClassName('card');
+// const modal = document.getElementById('modal');
+// const xButton = document.getElementById('x-btn')
+//
+//   for(i=0; i<properties.length; i++) {
+//     console.log(i);
+//     properties[i].addEventListener('click', function() {
+//       this.lastElementChild.style.display = 'block';
+//       console.log("A property has been clicked!!");
+//     });
+//   }
+//
+//   xButton.addEventListener('click', function() {
+//     this.parentElement.style.display = 'none'
+//     console.log('x button clicked!!')
+//   });

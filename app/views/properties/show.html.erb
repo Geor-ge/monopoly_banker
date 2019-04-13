@@ -1,30 +1,34 @@
-<div class="property-card">
-  <h3 style="background-color: <%= @property.color %>"><%= @property.name %></h3>
-  <% if @property.owned? %>
-  <h4>Owner: <%= @property.player.name %></h4>
-  <p><%= @property.number_of_houses %></p>
-  <p><%= @property.number_of_hotels %></p>
-  <% else %>
-  <h4>Owner: N/A</h4>
-  <% end %>
-  <p>Property Price: <%= number_to_currency(@property.property_price, precision: 0) %></p>
-  <p>Mortgage Value: <%= number_to_currency(@property.mortgage_value, precision: 0) %></p>
-  <% if @property.color == 'Railroad' %>
-  <p>Rent: <%= number_to_currency(@property.rent_1, precision: 0) %></p>
-  <p>If 2 Railroads Are Owned: <%= number_to_currency(@property.rent_2, precision: 0) %></p>
-  <p>If 3 Railroads Are Owned: <%= number_to_currency(@property.rent_3, precision: 0) %></p>
-  <p>If 4 Railroads Are Owned: <%= number_to_currency(@property.rent_4, precision: 0) %></p>
-  <% elsif @property.color == 'Utility' %>
-  <p>Rent: 4X Dice Roll</p>
-  <p>If Both Utilities Are Owned: 10X Dice Roll</p>
-  <% else %>
-  <p>Rent: <%= number_to_currency(@property.rent, precision: 0) %></p>
-  <p>Rent w/ 1 House: <%= number_to_currency(@property.rent_1, precision: 0) %></p>
-  <p>Rent w/ 2 Houses: <%= number_to_currency(@property.rent_2, precision: 0) %></p>
-  <p>Rent w/ 3 Houses: <%= number_to_currency(@property.rent_3, precision: 0) %></p>
-  <p>Rent w/ 4 Houses: <%= number_to_currency(@property.rent_4, precision: 0) %></p>
-  <p>Rent w/ Hotel: <%= number_to_currency(@property.rent_hotel, precision: 0) %></p>
-  <p>Houses Cost: <%= number_to_currency(@property.house_price, precision: 0) %> Each</p>
-  <p>Hotels Cost: <%= number_to_currency(@property.hotel_price, precision: 0) %> Each</p>
-  <% end %>
-</div>
+<div id='modal'>
+  <div id='modal-card'>
+    <p class= 'modal-title' style="background-color: <%= @property.color %>"><%= @property.name %></p>
+    <% if @property.owned? %>
+    <strong><p>Owner: <%= @property.player.name %></p></strong>
+    <p>Number of Houses: <%= @property.number_of_houses %></p>
+    <p>Number of Hotels: <%= @property.number_of_hotels %></p>
+    <% end %>
+    <p>Property Price: <%= number_to_currency(@property.property_price, precision: 0) %></p>
+    <p>Mortgage Value: <%= number_to_currency(@property.mortgage_value, precision: 0) %></p>
+    <% if @property.color == 'Railroad' %>
+    <p>Rent: <%= number_to_currency(p.rent_1, precision: 0) %></p>
+    <p>If 2 Railroads Are Owned: <%= number_to_currency(@property.rent_2, precision: 0) %></p>
+    <p>If 3 Railroads Are Owned: <%= number_to_currency(@property.rent_3, precision: 0) %></p>
+    <p>If 4 Railroads Are Owned: <%= number_to_currency(@property.rent_4, precision: 0) %></p>
+    <% elsif @property.color == 'Utility' %>
+    <p>Rent: 4X Dice Roll</p>
+    <p>If Both Utilities Are Owned: 10X Dice Roll</p>
+    <% else %>
+    <p>Rent: <%= number_to_currency(@property.rent, precision: 0) %></p>
+    <p>Rent w/ 1 House: <%= number_to_currency(@property.rent_1, precision: 0) %></p>
+    <p>Rent w/ 2 Houses: <%= number_to_currency(@property.rent_2, precision: 0) %></p>
+    <p>Rent w/ 3 Houses: <%= number_to_currency(@property.rent_3, precision: 0) %></p>
+    <p>Rent w/ 4 Houses: <%= number_to_currency(@property.rent_4, precision: 0) %></p>
+    <p>Rent w/ Hotel: <%= number_to_currency(@property.rent_hotel, precision: 0) %></p>
+    <p>Houses Cost: <%= number_to_currency(@property.house_price, precision: 0) %> Each</p>
+    <p>Hotels Cost: <%= number_to_currency(@property.hotel_price, precision: 0) %> Each</p>
+    <% end %>
+    <div id='btn-group'>
+      <a href="/properties/<%=@property.id%>/buy" class='modal-btn'>Mortgage</a>
+      <a href="/properties/<%=@property.id%>/pay_rent" class='modal-btn'>Sell House</a>
+      <a href="/properties/<%=@property.id%>/sell" class='modal-btn'>Sell Hotel</a>
+    </div>
+  </div>

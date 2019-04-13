@@ -1,2 +1,3 @@
-<h1>Players#index</h1>
-<p>Find me in app/views/players/index.html.erb</p>
+<% @players.each do |p| %>
+<p><%= p.name %><%= p.cash%></p>
+<% end %>
