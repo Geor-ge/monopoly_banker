@@ -1,3 +1,6 @@
 <% @players.each do |p| %>
-<p><%= p.name %><%= p.cash%></p>
+<p><%= p.name %></p>
+<p>RR: <%= p.number_of_railroads %></p>
+<p>Util: <%= p.number_of_utilities %></p>
+<p><%= number_to_currency(p.cash, precision: 0)%></p>
 <% end %>

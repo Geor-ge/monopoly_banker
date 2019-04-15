@@ -16,6 +16,8 @@ ActiveRecord::Schema.define(version: 2019_03_28_224455) do
     t.string "name"
     t.string "piece"
     t.integer "cash"
+    t.integer "number_of_railroads"
+    t.integer "number_of_utilities"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -34,6 +36,7 @@ ActiveRecord::Schema.define(version: 2019_03_28_224455) do
     t.integer "rent_4"
     t.integer "rent_hotel"
     t.boolean "owned"
+    t.boolean "mortgage"
     t.integer "number_of_houses"
     t.integer "number_of_hotels"
     t.integer "player_id"

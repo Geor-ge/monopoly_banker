@@ -1,1 +1,4 @@
-buy this prop
+<%= form_for(@property) do |f| %>
+<%= f.collection_select(:player_id, Player.all, :id, :name, {prompt: 'Player'}) %>
+<%= f.submit "Buy #{@property.name}" %>
+<% end %>

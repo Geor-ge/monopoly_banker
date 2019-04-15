@@ -1,0 +1,4 @@
+<%= form_for(@property) do |f| %>
+<%= f.collection_select(:player_id, Player.all, :id, :name, {prompt: 'Player'}) %>
+<%= f.submit "Pay #{@property.owner.name}" %>
+<% end %>

@@ -3,40 +3,62 @@
 <div class='card'>
   <p id='card-title' style='background-color:<%=p.color%>;'><a href='/properties/<%= p.id %>'><%= p.name %></a></p>
   <% if p.owned %>
-  <strong><p>Owner: <%=p.player.name%></p></strong>
+    <strong><p>Owner: <%=p.player.name%></p></strong>
 
-  <% unless p.color == 'Utility' || p.color == 'Railroad' %>
-    <% if p.number_of_hotels == 0 && p.number_of_houses < 4 %>
-      <p>Number of Houses: <%= p.number_of_houses %></p>
-      <a class='card-btn' href='/properties/<%= p.id %>/build_house'>Build House</a>
-    <% elsif p.number_of_houses == 4 %>
-      <p>Number of Houses: <%= p.number_of_houses %></p>
-      <a class='card-btn' href='/properties/<%= p.id %>/build_hotel'>Build Hotel</a>
-    <% end %>
-  <% end %>
-  
-  <% unless p.color == 'Utility' %>
-     <% if p.number_of_houses == 0 && p.number_of_hotels == 0 %>
-     <p>Current Rent: <%= number_to_currency(p.rent, precision: 0) %></p>
-   <% elsif p.number_of_houses == 1 %>
-     <p>Current Rent: <%= number_to_currency(p.rent_1, precision: 0) %></p>
-   <% elsif p.number_of_houses == 2 %>
-     <p>Current Rent: <%= number_to_currency(p.rent_2, precision: 0) %></p>
-   <% elsif p.number_of_houses == 3 %>
-     <p>Current Rent: <%= number_to_currency(p.rent_3, precision: 0) %></p>
-   <% elsif p.number_of_houses == 4 %>
-     <p>Current Rent: <%= number_to_currency(p.rent_4, precision: 0) %></p>
-   <% elsif p.number_of_hotels == 1 %>
-     <p>Hotel Rent: <%= number_to_currency(p.rent_hotel, precision: 0) %></p>
-   <% end %>
-   <a class='card-btn' href="/properties/<%= p.id %>/pay_rent">Pay Rent</a>
-  <% end %>
+      <% unless p.color == 'Utility' || p.color == 'Railroad' || p.mortgage == true %>
+        <% if p.number_of_houses == 0 && p.number_of_hotels == 0 %>
+         <p>Current Rent: <%= number_to_currency(p.rent, precision: 0) %></p>
+        <% elsif p.number_of_houses == 1 %>
+         <p>Current Rent: <%= number_to_currency(p.rent_1, precision: 0) %></p>
+        <% elsif p.number_of_houses == 2 %>
+         <p>Current Rent: <%= number_to_currency(p.rent_2, precision: 0) %></p>
+        <% elsif p.number_of_houses == 3 %>
+         <p>Current Rent: <%= number_to_currency(p.rent_3, precision: 0) %></p>
+        <% elsif p.number_of_houses == 4 %>
+         <p>Current Rent: <%= number_to_currency(p.rent_4, precision: 0) %></p>
+        <% elsif p.number_of_hotels == 1 && p.number_of_houses == 0%>
+         <p>Hotel Rent: <%= number_to_currency(p.rent_hotel, precision: 0) %></p>
+        <% end %>
+        <a class='card-btn' href="/properties/<%= p.id %>/pay_rent">Pay Rent</a>
+      <% end %>
 
+      <% if p.color == 'Railroad' && p.mortgage == false %>
+        <% if p.player.number_of_railroads == 1 %>
+          <p>Current Rent: <%= number_to_currency(p.rent_1, precision: 0) %></p>
+        <% elsif p.player.number_of_railroads == 2 %>
+          <p>Current Rent: <%= number_to_currency(p.rent_2, precision: 0) %></p>
+        <% elsif p.player.number_of_railroads == 3%>
+          <p>Current Rent: <%= number_to_currency(p.rent_3, precision: 0) %></p>
+        <% elsif p.player.number_of_railroads == 4%>
+          <p>Current Rent: <%= number_to_currency(p.rent_4, precision: 0) %></p>
+        <% end %>
+        <a class='card-btn' href="/properties/<%= p.id %>/pay_rent">Pay Rent</a>
+      <% end %>
 
+      <% if p.color == 'Utility' && p.mortgage == false %>
+        <% if p.player.number_of_utilities == 1 %>
+          <p>Current Rent: 4X Dice</p>
+        <% elsif p.player.number_of_utilities == 2 %>
+          <p>Current Rent: 10X Dice</p>
+        <% end %>
+        <a class='card-btn' href="/properties/<%= p.id %>/pay_utility">Pay Rent</a>
+      <% end %>
 
- <% else %>
-  <strong><p>Property Price: <%= number_to_currency(p.property_price, precision: 0) %></p></strong>
-  <a class='card-btn' href='/properties/<%= p.id %>/buy_property'>Buy Me!</a><br>
+      <% unless p.color == 'Utility' || p.color == 'Railroad' %>
+        <% if p.number_of_hotels == 0 && p.number_of_houses < 4 && p.mortgage == false %>
+          <a class='card-btn' href='/properties/<%= p.id %>/build_house'>Build House</a>
+        <% elsif p.number_of_houses == 4 %>
+          <a class='card-btn' href='/properties/<%= p.id %>/build_hotel'>Build Hotel</a>
+        <% end %>
+      <% end %>
+
+      <% if p.mortgage %>
+        <a href="/properties/<%= p.id %>/pay_mortgage" class='card-btn'>Pay Mortgage</a>
+      <% end %>
+
+  <% else %>
+    <strong><p>Property Price: <%= number_to_currency(p.property_price, precision: 0) %></p></strong>
+    <a class='card-btn' href='/properties/<%= p.id %>/buy_property'>Buy Me!</a>
  <% end %>
 
 </div>
