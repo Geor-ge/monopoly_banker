@@ -141,14 +141,19 @@ class PropertiesController < ApplicationController
 
   def pay_rent
     @property = Property.find(params[:id])
-    @players = Player.all
   end
 
   def complete_pay_rent_transaction
-    @property = Property.find(params[:id])
-    amount = current_rent(@property)
-    owner = Player.find(@property.player_id)
+    property = Property.find(params[:id])
+    owner = Player.find(property.player_id)
     renter = Player.find(params[:player][:player_id])
+
+    if property.color == 'Railroad'
+      amount = railroad_rent(property)
+    else
+      amount = current_rent(property)
+    end
+
     renter.cash -= amount
     renter.save
     owner.cash += amount
@@ -156,11 +161,6 @@ class PropertiesController < ApplicationController
     p params
     redirect_to '/players'
   end
-
-
-  def pay_utility
-  end
-
 
   private
 

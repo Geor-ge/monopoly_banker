@@ -20,4 +20,17 @@ module PropertiesHelper
     puts amount
   end
 
+  def railroad_rent(p)
+    if p.player.number_of_railroads == 1
+      amount = p.rent_1
+    elsif p.player.number_of_railroads == 2
+      amount = p.rent_2
+    elsif p.player.number_of_railroads == 3
+      amount = p.rent_3
+    elsif p.player.number_of_railroads == 4
+      amount = p.rent_4
+    end
+  end
+
+
 end
