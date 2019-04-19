@@ -7,10 +7,15 @@ Rails.application.routes.draw do
 
   get '/properties/:id/buy_property', to: 'properties#buy_property'
   post '/properties/:id/buy_property', to: 'properties#update'
+
   get '/properties/:id/sell_property', to: 'properties#sell_property'
+
   get '/properties/:id/mortgage', to: 'properties#mortgage'
   get '/properties/:id/pay_mortgage', to: 'properties#pay_mortgage'
+
   get '/properties/:id/pay_rent', to: 'properties#pay_rent'
+  post '/properties/:id/pay_rent', to: 'properties#complete_pay_rent_transaction'
+
   get '/properties/:id/pay_utility', to: 'properties#pay_utility'
   get '/properties/:id/build_house', to: 'properties#build_house'
   get '/properties/:id/sell_house', to: 'properties#sell_house'
